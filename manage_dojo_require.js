@@ -61,11 +61,19 @@ function do_merge() {
             }
         }
     }
+    var add_last = false;
     for (var i in all_requirements) {
         if (!done_requirements[i]) {
-            out_requirements[out_requirements.length] = i;
+            if (i == 'dojo/domReady!') {
+                add_last = true;
+            } else {
+                out_requirements[out_requirements.length] = i;
+            }
             done_requirements[i] = 1;
         }
+    }
+    if (add_last) {
+        out_requirements[out_requirements.length] = 'dojo/domReady!';
     }
     
     jQ('#output').text("require([\n    '"+out_requirements.join("',\n    '") + 
