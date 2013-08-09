@@ -1,0 +1,37 @@
+<html><head>
+<title>dojo require manager</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="manage_dojo_require.js"></script>
+</head>
+<body>
+<h1>Merge dojo require() lists.</h1>
+<p>Paste multiple texts from '[' to ')' as in:</p>
+<pre>    ["foo/bar", "some/thing", "other/module"],
+    function(Bar, Thing)
+
+    ["some/thing", "also/and_this", "also/this_one"],
+    function(Thing, AndThis)</pre>
+<textarea rows='20' cols='80'></textarea>
+<div><button>Merge</button></div>
+<pre id='output' style="font-weight:bold; font-size:135%"></pre>
+<p>
+A small javascript tool to manage dojo require() calls.
+</p><p>
+Given:</p><pre>
+    
+    require(["foo/bar", "some/thing", "other/module"],
+            function(Bar, Thing) ...
+</pre><p>
+from one piece of code, and:
+</p><pre>
+    require(["some/thing", "also/and_this", "also/this_one"],
+            function(Thing, AndThis) ...
+</pre><p>
+it merges them into:
+</p><pre>    
+    require(["foo/bar", "some/thing", "also/and_this", 
+             "other/module", "also/this_one"],
+            function(Bar, Thing, AndThis) ...
+</pre>
+</body>
+</html>
