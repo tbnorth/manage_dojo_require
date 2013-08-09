@@ -15,7 +15,7 @@ function do_merge() {
     var all_requirements = {};
     var outputs = [];
     for (var i in parts) {
-        var part = parts[i].trim();
+        var part = parts[i].replace(/\s/g, '');
         if (part.indexOf('[') != -1) {
             if (requirements.length) {
                 input[input.length] = {};
@@ -68,6 +68,6 @@ function do_merge() {
         }
     }
     
-    jQ('#output').text("require(['"+out_requirements.join("', '") + 
-                       "'],\n    function("+out_outputs.join(', ')+")")
+    jQ('#output').text("require([\n    '"+out_requirements.join("',\n    '") + 
+                       "'\n], function(\n    "+out_outputs.join(',\n    ')+"\n){\n})")
 }

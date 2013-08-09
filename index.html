@@ -17,9 +17,7 @@
 <p>
 A small javascript tool to manage dojo require() calls.
 </p><p>
-Given:</p><pre>
-    
-    require(["foo/bar", "some/thing", "other/module"],
+Given:</p><pre>    require(["foo/bar", "some/thing", "other/module"],
             function(Bar, Thing) ...
 </pre><p>
 from one piece of code, and:
@@ -28,8 +26,7 @@ from one piece of code, and:
             function(Thing, AndThis) ...
 </pre><p>
 from another, it merges them into:
-</p><pre>    
-    require(["foo/bar", "some/thing", "also/and_this", 
+</p><pre>    require(["foo/bar", "some/thing", "also/and_this", 
              "other/module", "also/this_one"],
             function(Bar, Thing, AndThis) ...
 </pre>
