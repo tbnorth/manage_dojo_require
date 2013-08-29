@@ -1,5 +1,7 @@
 A small javascript tool to manage dojo require() calls.
 
+(go to http://tbnorth.github.io/manage_dojo_require/ for the tool itself)
+
 Given::
     
     require(["foo/bar", "some/thing", "other/module"],
